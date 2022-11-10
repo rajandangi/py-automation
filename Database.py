@@ -5,13 +5,13 @@ from self import self
 # Sample class with init method
 class Database:
     def __init__(self):
-        self.dbName = "connectips"
-        self.dbUser = "postgres"
-        self.dbPassword = "123456"
-        self.dbHost = "10.250.3.20"
-        self.dbPort = "5432"
+        self.dbName = "postgress_dbname"
+        self.dbUser = "postgress_user"
+        self.dbPassword = "55555555555"
+        self.dbHost = "100.250.250.200"
+        self.dbPort = "599992"
         self._conn = psycopg2.connect(database=self.dbName, user=self.dbName,
-                                password=self.dbPassword, host=self.dbHost, port=self.dbPort)
+                                      password=self.dbPassword, host=self.dbHost, port=self.dbPort)
         print('Connected to DB:', self._conn)
         self._cursor = self._conn.cursor()
 
