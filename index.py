@@ -12,7 +12,7 @@ def exporter():
         currentdate = now.strftime("%Y%b%d_%H%M%S")
         pastDate = pastdate.strftime("%Y-%m-%d")
         bankIds = db.query(
-            """select distinct (bank_id) from bank_details_table order by bank_id asc""")
+            """select distinct (bank_id) from table_name order by bank_id asc""")
 
         # export CSV
         print("CSV Created at =", currentdate)
@@ -23,7 +23,7 @@ def exporter():
                              ",b.iso_txn_id,t.id ,t.instruction_id, end_to_end_id , app_id ,app_txn_id,creditor_agent " \
                              ",creditor_branch , creditor_name , creditor_account ,credit_status,ref_id,remarks ," \
                              "particulars,free_code_1,free_code_2,t.free_text_1,t.addenda1,t.addenda2,t.addenda3," \
-                             "t.addenda4 from cips_batch_detail_table b,cips_transaction_detail_table t where " \
+                             "t.addenda4 from table-1 b,table-2 t where " \
                              "b.id=t.batch_id and b.debit_status !='ENTR'and b.debtor_agent='" + \
                              bankId[0] + "' and b.settlement_date='" + \
                              pastDate + "'"
